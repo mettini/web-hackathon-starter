@@ -1,0 +1,29 @@
+@(form: Form[controllers.auth.SignupForm.Data], request: RequestHeader)(implicit messages: Messages)
+
+@implicitFieldConstructor = @{ b4.vertical.fieldConstructor() }
+
+@main(Messages("signup.title"), None) {
+
+  <div class="container">
+
+    <h1>@Messages("signup.title")</h1>
+
+    @if(form.hasGlobalErrors) {
+      @form.globalErrors.map { error: FormError =>
+        <div class="error global">@Html(Messages(error.message))</div>
+      }
+    }
+
+    @b4.form(controllers.auth.routes.SignupController.doSignup) {
+      @helper.CSRF.formField(request)
+      @b4.text( form("firstName"), '_label -> Messages("field.firstName") )
+      @b4.text( form("lastName"), '_label ->Messages("field.lastName") )
+      @b4.email( form("email"), '_label -> Messages("field.email") )
+      @b4.password( form("password"), '_label -> Messages("field.password") )
+
+      <button type="submit" class="btn btn-primary">@Messages("signup.createAccount")</button> o <a href="@controllers.auth.routes.LoginController.login">@Messages("actions.login")(messages)</a>
+    }
+
+  </div>
+
+}

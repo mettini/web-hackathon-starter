@@ -1,0 +1,23 @@
+@(result: String, hash: String, email: Option[String])(user: Option[models.user.User], request: RequestHeader, messages: Messages)
+
+@implicitMessage = @{ messages }
+
+@main(Messages("emailVerification.result.title"), user) {
+  <div class="container">
+    <h1>@Messages("emailVerification.result.title")</h1>
+    @if(email.isEmpty) {
+      <p>@Html(Messages(result))</p>
+    } else {
+      <p>@Html(Messages(result, email.get))</p>
+    }
+    <div class="actions">
+      <form action="@controllers.user.routes.EmailVerificationController.resendEmailVerification(hash)" method="POST">
+        @helper.CSRF.formField(request)
+        @if(result == "emailVerification.error.hashExpired") {
+          <button type="submit" class="btn btn-primary">@Messages("actions.resend")</button>
+        }
+      </form>
+      <a href="@controllers.www.routes.HomeController.index">@Messages("actions.back")</a>
+    </div>
+  </div>
+}

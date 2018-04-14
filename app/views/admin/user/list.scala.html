@@ -1,0 +1,49 @@
+@(usersCount: Long, users: List[models.user.User], offset: Long, 
+  limit: Long, msg: Option[String], pageResolver: (Long, Long) => play.api.mvc.Call)(adminUser: models.admin.AdminUser, 
+  request: Request[AnyContent], messages: Messages)
+
+@implicitMessage = @{ messages }
+
+@adminMain(Messages("user.list.title"), Some(adminUser)) {
+
+  <div class="container">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@controllers.admin.routes.AdminHomeController.index">@Messages("admin.home.title")</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Messages("user.list.title")</li>
+      </ol>
+    </nav>
+
+    <h1>@Messages("user.list.title")</h1>
+
+    @msg.map { m =>
+      <div class="success global">@Html(Messages(m))</div>
+    }
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">@Messages("field.id")</th>
+          <th scope="col">@Messages("field.email")</th>
+          <th scope="col">@Messages("field.actions")</th>
+        </tr>
+      </thead>
+      <tbody>
+      @for(u <- users) {
+        <tr>
+          <td scope="row">@u.id</td>
+          <td>@u.email</td>
+          <td>
+            <a href="@controllers.admin.user.routes.UserController.detail(u.id)">@Messages("actions.detail")</a>
+          </td>
+        </tr>
+      }
+      </tbody>
+    </table>
+
+    @common.paginator(usersCount, offset, limit, pageResolver)
+
+  </div>
+
+}

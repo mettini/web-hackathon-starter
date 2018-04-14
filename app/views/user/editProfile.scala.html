@@ -1,0 +1,37 @@
+@(form: Form[controllers.user.UserProfileForm.Data])(user: models.user.User, request: RequestHeader, messages: Messages)
+
+@implicitFieldConstructor = @{ b4.vertical.fieldConstructor() }
+@implicitMessage = @{ messages }
+
+@main(Messages("editUserProfile.title"), Some(user)) {
+
+  <div class="container">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@controllers.www.routes.HomeController.index">@Messages("home.title")</a></li>
+        <li class="breadcrumb-item"><a href="@controllers.user.routes.UserProfileController.profile(user.id)">@Messages("userProfile.title")</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Messages("aeditUserProfile.title")</li>
+      </ol>
+    </nav>
+
+    <h1>@Messages("editUserProfile.title")</h1>
+
+    @if(form.hasGlobalErrors) {
+      @form.globalErrors.map { error: FormError =>
+        <div class="error global">@Html(Messages(error.message))</div>
+      }
+    }
+
+    @b4.form(controllers.user.routes.UserProfileController.doUpdate(user.id)) {
+      @helper.CSRF.formField(request)
+      @b4.text( form("firstName"), '_label -> Messages("field.firstName") )
+      @b4.text( form("lastName"), '_label ->Messages("field.lastName") )
+      @b4.email( form("email"), '_label -> Messages("field.email") )
+
+      <button type="submit" class="btn btn-primary">@Messages("editUserProfile.edit")</button>
+    }
+
+  </div>
+
+}

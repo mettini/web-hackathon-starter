@@ -1,0 +1,14 @@
+@(count: Long, offset: Long, limit: Long, pageResolver: (Long, Long) => play.api.mvc.Call)(implicit messages: Messages)
+
+@if(count > limit) {
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      @if(offset > 0) {
+        <li class="page-item"><a class="page-link" href="@pageResolver(offset - limit, limit)">@Messages("paginator.previous")</a></li>
+      }
+      @if(offset + 1 < count) {
+        <li class="page-item"><a class="page-link" href="@pageResolver(offset + limit, limit)">@Messages("paginator.next")</a></li>
+      }
+    </ul>
+  </nav>
+}

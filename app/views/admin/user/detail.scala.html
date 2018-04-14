@@ -1,0 +1,50 @@
+@(user: models.user.User, userProfile: models.user.UserProfile)(adminUser: models.admin.AdminUser, 
+  request: Request[AnyContent], messages: Messages)
+
+@implicitMessage = @{ messages }
+
+@adminMain(Messages("user.detail.title"), Some(adminUser)) {
+
+  <div class="container">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@controllers.admin.routes.AdminHomeController.index">@Messages("admin.home.title")</a></li>
+        <li class="breadcrumb-item"><a href="@controllers.admin.user.routes.UserController.list()">@Messages("user.list.title")</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Messages("user.detail.title")</li>
+      </ol>
+    </nav>
+
+    <h1>@Messages("user.detail.title")</h1>
+
+    <a href="@controllers.admin.user.routes.UserController.delete(user.id)" 
+       class="btn btn-danger btn-sm confirm-link" data-confirm-text="@Messages("user.delete.text", user.id)">
+      @Messages("actions.delete")
+    </a>
+    @if(user.config.isModerated) {
+      <a href="@controllers.admin.user.routes.UserController.removeModeration(user.id)" class="btn btn-secondary btn-sm">
+        @Messages("actions.removeModeration")
+      </a>
+    } else {
+      <a href="@controllers.admin.user.routes.UserController.moderate(user.id)" class="btn btn-secondary btn-sm">
+        @Messages("actions.moderate")
+      </a>
+    }
+
+    <h2 class="mt-3">@Messages("user.detail.basicInformation")</h2>
+    <span class="field d-block"><strong>@Messages("field.id")</strong> @user.id</span>
+    <span class="field d-block"><strong>@Messages("field.email")</strong> @user.email</span>
+    <span class="field d-block"><strong>@Messages("field.verificationStatus")</strong> @user.verificationStatus</span>
+    <span class="field d-block"><strong>@Messages("field.registrationDate")</strong> @user.creationDate</span>
+    
+    <h2 class="mt-3">@Messages("user.detail.profile")</h2>
+    <span class="field d-block"><strong>@Messages("field.firstName")</strong> @userProfile.firstname</span>
+    <span class="field d-block"><strong>@Messages("field.lastName")</strong> @userProfile.lastname</span>
+
+    <h2 class="mt-3">@Messages("user.detail.config")</h2>
+    <span class="field d-block"><strong>@Messages("field.moderated")</strong> @user.config.isModerated</span>
+    <span class="field d-block"><strong>@Messages("field.testUser")</strong> @user.config.isTest</span>
+
+  </div>
+
+}

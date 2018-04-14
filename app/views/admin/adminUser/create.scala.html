@@ -1,0 +1,39 @@
+@(form: Form[controllers.admin.adminUser.AdminUserForm.Data], adminRoles: List[models.admin.AdminRole])(adminUser: models.admin.AdminUser, request: Request[AnyContent], messages: Messages)
+
+@implicitFieldConstructor = @{ b4.vertical.fieldConstructor() }
+@implicitMessage = @{ messages }
+
+@roles = @{ adminRoles.map(r => r.id.toString -> r.name).sortBy(_._2) }
+
+@adminMain(Messages("adminUser.create.title"), Some(adminUser)) {
+
+  <div class="container">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@controllers.admin.routes.AdminHomeController.index">@Messages("admin.home.title")</a></li>
+        <li class="breadcrumb-item"><a href="@controllers.admin.adminUser.routes.AdminUserController.list()">@Messages("adminUser.list.title")</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Messages("adminUser.create.title")</li>
+      </ol>
+    </nav>
+
+    <h1>@Messages("adminUser.create.title")</h1>
+
+    @if(form.hasGlobalErrors) {
+      @form.globalErrors.map { error: FormError =>
+        <div class="error global">@Html(Messages(error.message))</div>
+      }
+    }
+
+    @b4.form(controllers.admin.adminUser.routes.AdminUserController.doCreate) {
+      @helper.CSRF.formField(request)
+      @b4.text( form("name"), '_label -> Messages("field.name") )
+      @b4.text( form("username"), '_label -> Messages("field.username") )
+      @b4.password( form("password"), '_label -> Messages("field.password") )
+      @b4.select( form("roles"), options = roles, '_custom -> true, 'multiple -> true, '_label -> Messages("field.roles") )
+      @b4.submit('class -> "btn btn-primary"){ @Messages("adminUser.create.createUser") }
+    }
+
+  </div>
+
+}

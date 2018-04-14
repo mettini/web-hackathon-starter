@@ -1,0 +1,31 @@
+@(form: Form[controllers.auth.LoginForm.Data], request: RequestHeader)(implicit messages: Messages)
+
+@implicitFieldConstructor = @{ b4.vertical.fieldConstructor() }
+
+@main(Messages("login.title"), None) {
+
+  <div class="container">
+
+    <h1>@Messages("login.title")</h1>
+
+    @if(form.hasGlobalErrors) {
+      @form.globalErrors.map { error: FormError =>
+        <div class="error global">@Html(Messages(error.message))</div>
+      }
+    }
+
+    @b4.form(controllers.auth.routes.LoginController.doLogin) {
+      @helper.CSRF.formField(request)
+      @b4.email( form("email"), '_label -> Messages("field.email") )
+      @b4.password( form("password"), '_label -> Messages("field.password") )
+      <div class="pl-md-2">
+        <a href="@controllers.auth.routes.RecoverPasswordController.recoverRequest">@Messages("actions.recover")</a>
+      </div>
+      <div class="actions mt-3">
+        <button type="submit" class="btn btn-primary">@Messages("login.loginAction")</button> o <a href="@controllers.auth.routes.SignupController.signup">@Messages("actions.signup")(messages)</a>
+      </div>
+    }
+
+  </div>
+
+}

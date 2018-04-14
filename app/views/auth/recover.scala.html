@@ -1,0 +1,30 @@
+@(form: Form[controllers.auth.RecoverPasswordForm.Data], request: RequestHeader, okMsg: Option[String])(implicit messages: Messages)
+
+@implicitFieldConstructor = @{ b4.vertical.fieldConstructor() }
+
+@main(Messages("recover.title"), None) {
+
+  <div class="container">
+
+    <h1>@Messages("recover.title")</h1>
+
+    @if(form.hasGlobalErrors) {
+      @form.globalErrors.map { error: FormError =>
+        <div class="error global">@Html(Messages(error.message))</div>
+      }
+    }
+
+    @okMsg.map { msg =>
+      <div class="success global">@Html(Messages(msg))</div>
+    }
+
+    @b4.form(controllers.auth.routes.RecoverPasswordController.doRecoverRequest) {
+      @helper.CSRF.formField(request)
+      @b4.email( form("email"), '_label -> Messages("field.email") )
+
+      <button type="submit" class="btn btn-primary">@Messages("recover.recoverAction")</button>
+    }
+
+  </div>
+
+}

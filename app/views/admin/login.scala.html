@@ -1,0 +1,28 @@
+@(form: Form[controllers.admin.auth.AdminLoginForm.Data], request: RequestHeader)(implicit messages: Messages)
+
+@implicitFieldConstructor = @{ b4.vertical.fieldConstructor() }
+
+@adminMain(Messages("admin.login.title"), None) {
+
+  <div class="container">
+
+    <h1>@Messages("admin.login.title")</h1>
+
+    @if(form.hasGlobalErrors) {
+      @form.globalErrors.map { error: FormError =>
+        <div class="error global">@Html(Messages(error.message))</div>
+      }
+    }
+
+    @b4.form(controllers.admin.auth.routes.AdminLoginController.doLogin) {
+      @helper.CSRF.formField(request)
+      @b4.text( form("username"), '_label -> Messages("field.username") )
+      @b4.password( form("password"), '_label -> Messages("field.password") )
+      <div class="actions mt-3">
+        <button type="submit" class="btn btn-primary">@Messages("login.loginAction")</button>
+      </div>
+    }
+
+  </div>
+
+}

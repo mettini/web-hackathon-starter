@@ -1,0 +1,60 @@
+@(adminUsersCount: Long, adminUsers: List[models.admin.AdminUser], offset: Long, 
+  limit: Long, msg: Option[String], pageResolver: (Long, Long) => play.api.mvc.Call)(adminUser: models.admin.AdminUser, 
+  request: Request[AnyContent], messages: Messages)
+
+@import models.admin.AdminUser
+
+@implicitMessage = @{ messages }
+
+@adminMain(Messages("adminUser.list.title"), Some(adminUser)) {
+
+  <div class="container">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@controllers.admin.routes.AdminHomeController.index">@Messages("admin.home.title")</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Messages("adminUser.list.title")</li>
+      </ol>
+    </nav>
+
+    <h1>@Messages("adminUser.list.title")</h1>
+
+    @msg.map { m =>
+      <div class="success global">@Html(Messages(m))</div>
+    }
+
+    <a href="@controllers.admin.adminUser.routes.AdminUserController.create" class="btn btn-primary mt-2 mb-4">@Messages("actions.create")</a>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">@Messages("field.id")</th>
+          <th scope="col">@Messages("field.name")</th>
+          <th scope="col">@Messages("field.username")</th>
+          <th scope="col">@Messages("field.actions")</th>
+        </tr>
+      </thead>
+      <tbody>
+      @for(u <- adminUsers) {
+        <tr>
+          <td scope="row">@u.id</td>
+          <td>@u.name</td>
+          <td>@u.username</td>
+          <td>
+            @if(adminUser.id == AdminUser.SuperUserId || (adminUser.id != AdminUser.SuperUserId && u.id != AdminUser.SuperUserId)) {
+              <a href="@controllers.admin.adminUser.routes.AdminUserController.edit(u.id)">@Messages("actions.edit")</a>&nbsp;
+              <a href="@controllers.admin.adminUser.routes.AdminUserController.delete(u.id)" class="confirm-link" data-confirm-text="@Messages("adminUser.delete.text", u.id)">
+                @Messages("actions.delete")
+              </a>
+            }
+          </td>
+        </tr>
+      }
+      </tbody>
+    </table>
+
+    @common.paginator(adminUsersCount, offset, limit, pageResolver)
+
+  </div>
+
+}

@@ -1,0 +1,55 @@
+# Ping
+GET        /ping                                      controllers.PingController.ping
+HEAD       /ping                                      controllers.PingController.ping
+
+# WWW
+GET     /                                             controllers.www.HomeController.index
+
+# Auth
+GET     /users/:userId/logout                         controllers.auth.LogoutController.logout(userId: Long)
+GET     /auth/signup                                  controllers.auth.SignupController.signup
+POST    /auth/signup                                  controllers.auth.SignupController.doSignup
+GET     /auth/login                                   controllers.auth.LoginController.login
+POST    /auth/login                                   controllers.auth.LoginController.doLogin
+GET     /auth/recover                                 controllers.auth.RecoverPasswordController.recoverRequest
+POST    /auth/recover                                 controllers.auth.RecoverPasswordController.doRecoverRequest
+GET     /auth/recover/:hash                           controllers.auth.RecoverPasswordController.recover(hash: String)
+POST    /auth/recover/:hash                           controllers.auth.RecoverPasswordController.doRecover(hash: String)
+
+# Email Verification
+GET     /email-verification/:hash                     controllers.user.EmailVerificationController.verifyEmail(hash: String)
+POST    /email-verification/:hash                     controllers.user.EmailVerificationController.resendEmailVerification(hash: String)
+POST    /users/:userId/email-verification             controllers.user.EmailVerificationController.resendEmailVerificationForUser(userId: Long)
+
+# User
+GET     /users/:userId/profile                        controllers.user.UserProfileController.update(userId: Long)
+POST    /users/:userId/profile                        controllers.user.UserProfileController.doUpdate(userId: Long)
+GET     /users/:userId/password                       controllers.user.ChangePasswordController.modify(userId: Long)
+POST    /users/:userId/password                       controllers.user.ChangePasswordController.doModify(userId: Long)
+GET     /users/:userId                                controllers.user.UserProfileController.profile(userId: Long)
+
+# Admin
+GET     /admin/login                                  controllers.admin.auth.AdminLoginController.login
+POST    /admin/login                                  controllers.admin.auth.AdminLoginController.doLogin
+GET     /admin/logout                                 controllers.admin.auth.AdminLogoutController.logout
+GET     /admin                                        controllers.admin.AdminHomeController.index
+
+# Admin User
+GET     /admin/adminUsers                             controllers.admin.adminUser.AdminUserController.list(msg: Option[String] ?= None, offset: Long ?= 0, limit: Long ?= 20)
+GET     /admin/adminUsers/form                        controllers.admin.adminUser.AdminUserController.create
+POST    /admin/adminUsers                             controllers.admin.adminUser.AdminUserController.doCreate
+GET     /admin/adminUsers/:adminUserId/form           controllers.admin.adminUser.AdminUserController.edit(adminUserId: Long)
+POST    /admin/adminUsers/:adminUserId                controllers.admin.adminUser.AdminUserController.doEdit(adminUserId: Long)
+GET     /admin/adminUsers/:adminUserId/password       controllers.admin.adminUser.AdminUserController.editPassword(adminUserId: Long)
+POST    /admin/adminUsers/:adminUserId/password       controllers.admin.adminUser.AdminUserController.doEditPassword(adminUserId: Long)
+GET     /admin/adminUsers/:adminUserId/delete         controllers.admin.adminUser.AdminUserController.delete(adminUserId: Long)
+
+# User (Admin Panel)
+GET     /admin/users                                  controllers.admin.user.UserController.list(msg: Option[String] ?= None, offset: Long ?= 0, limit: Long ?= 20)
+GET     /admin/users/:userId                          controllers.admin.user.UserController.detail(userId: Long)
+GET     /admin/users/:userId/delete                   controllers.admin.user.UserController.delete(userId: Long)
+GET     /admin/users/:userId/moderate                 controllers.admin.user.UserController.moderate(userId: Long)
+GET     /admin/users/:userId/removeModeration         controllers.admin.user.UserController.removeModeration(userId: Long)
+
+# Assets
+GET     /assets/*file                                 controllers.Assets.versioned(path="/public", file: Asset)

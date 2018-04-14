@@ -1,0 +1,20 @@
+@()(adminUser: models.admin.AdminUser, request: RequestHeader, messages: Messages)
+
+@implicitMessage = @{ messages }
+
+@import models.admin.AdminRole
+
+@adminMain(Messages("admin.home.title"), Some(adminUser)) {
+  <div class="container">
+
+    <h1>@Messages("admin.home.title")</h1>
+    <ul>
+      @if(adminUser.hasAnyRole(List(AdminRole.Admin))) {
+        <li><a href="@controllers.admin.adminUser.routes.AdminUserController.list()">@Messages("actions.adminUsers")</a></li>
+      }
+      @if(adminUser.hasAnyRole(List(AdminRole.Admin, AdminRole.Ops))) {
+        <li><a href="@controllers.admin.user.routes.UserController.list()">@Messages("actions.users")</a></li>
+      }
+    </ul>
+  </div>
+}

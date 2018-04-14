@@ -1,0 +1,16 @@
+@()(user: Option[models.user.User], request: RequestHeader, messages: Messages)
+
+@isAuthenticated = @{ user.isDefined } 
+@implicitMessage = @{ messages }
+
+@main(Messages("home.title"), user) {
+  <div class="container">
+    <h1>@Messages("home.title")</h1>
+    <ul>
+      @if(!isAuthenticated) {
+        <li><a href="@controllers.auth.routes.LoginController.login">@Messages("actions.login")</a></li>
+        <li><a href="@controllers.auth.routes.SignupController.signup">@Messages("actions.signup")</a></li>
+      }
+    </ul>
+  </div>
+}

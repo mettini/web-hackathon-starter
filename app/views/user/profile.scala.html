@@ -1,0 +1,35 @@
+@(userProfile: models.user.UserProfile, okMsg: Option[String])(user: models.user.User, request: RequestHeader, messages: Messages)
+
+@implicitMessage = @{ messages }
+
+@main(Messages("userProfile.title"), Some(user)) {
+
+  <div class="container">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@controllers.www.routes.HomeController.index">@Messages("home.title")</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Messages("userProfile.title")</li>
+      </ol>
+    </nav>
+
+    <h1>@Messages("userProfile.title")</h1>
+
+    @okMsg.map { msg =>
+      <div class="success global">@Html(Messages(msg))</div>
+    }
+
+    <div class="actions">
+      <a href="@controllers.user.routes.ChangePasswordController.modify(user.id)" class="btn btn-secondary btn-sm">@Messages("userProfile.modifyPassword")</a>
+      <a href="@controllers.user.routes.UserProfileController.update(user.id)" class="btn btn-secondary btn-sm">@Messages("userProfile.edit")</a>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-12"><strong>@Messages("field.firstName"):</strong> @userProfile.firstname</div>
+      <div class="col-12"><strong>@Messages("field.lastName"):</strong> @userProfile.lastname</div>
+      <div class="col-12"><strong>@Messages("field.email"):</strong> @user.email</div>
+    </div>
+
+  </div>
+
+}
