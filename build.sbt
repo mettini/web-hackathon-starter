@@ -23,9 +23,9 @@ libraryDependencies += "org.scalamock" %% "scalamock-scalatest-support" % "3.6.0
 libraryDependencies += "com.softwaremill.macwire" %% "macros" % "2.3.0" % "provided"
 libraryDependencies += "com.adrianhurt" %% "play-bootstrap" % "1.4-P26-B4-SNAPSHOT"
 
-libraryDependencies += "org.webjars" % "bootstrap" % "4.0.0-2"
+libraryDependencies += "org.webjars" % "bootstrap" % "4.1.0"
 libraryDependencies += "org.webjars.bower" % "jquery" % "3.3.1"
-libraryDependencies += "org.webjars" % "popper.js" % "1.14.1"
+libraryDependencies += "org.webjars.npm" % "popper.js" % "1.14.3"
 
 val akkaVersion = "2.5.11"
 dependencyOverrides += "com.typesafe.akka" %% "akka-actor" % akkaVersion
