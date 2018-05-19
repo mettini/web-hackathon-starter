@@ -58,7 +58,7 @@ CREATE DATABASE hackathonStarter DEFAULT CHARACTER SET utf8 COLLATE utf8_general
 USE hackathonStarter;
 ```
 
-Create table structure and insert base data running `conf/evolutions/default/1.sql` and `conf/evolutions/default/2.sql`.
+Create table structure and insert base data running `conf/evolutions/default/1.sql` and `conf/evolutions/default/2.sql` (only the *!Ups* sections in both files).
 
 ### Server startup
 
