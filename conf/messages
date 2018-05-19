@@ -1,159 +1,160 @@
 # Error
-error.emptyfirstName=Debes ingresar un Nombre
-error.emptylastName=Debes ingresar un Apellido
-error.emptyEmail=Debes ingresar un Email
-error.emptyUsername=Debes ingresar un Nombre de usuario
-error.invalidEmail=El email ingresado es incorrecto
-error.emptyPassword=Debes ingresar una contraseña
-error.emptyRepeatPassword=Debes repetir la contraseña
-error.passwordTooShort=La contraseña debe contener por lo menos 8 caracteres
-error.passwordsNotMatch=Las contraseñas no coinciden
-error.admin.passwordTooShort=La contraseña debe contener por lo menos 12 caracteres
+error.emptyfirstName=You must enter a name
+error.emptylastName=You must enter a lastname
+error.emptyEmail=You must enter an email
+error.emptyUsername=You must enter an username
+error.invalidEmail=Invalid email
+error.emptyPassword=You must enter a password
+error.emptyRepeatPassword=Repeat password missing
+error.passwordTooShort=The password must contain at least 8 characters
+error.passwordsNotMatch=Password and Repeat Password dont match
+error.admin.passwordTooShort=The password must be 12 characters at least
 
-error.emptyCurrentPassword=Debes ingresar la contraseña actual
-error.currentPasswordTooShort=La contraseña actual debe contener por lo menos 8 caracteres
-error.emptyNewPassword=Debes ingresar una nueva contraseña
-error.newPasswordTooShort=La nueva contraseña debe contener por lo menos 8 caracteres
-error.selectARole=Debes seleccionar un role
+error.emptyCurrentPassword=You must enter the current password
+error.currentPasswordTooShort=The password must contain at least 8 characters
+error.emptyNewPassword=You must enter a new password
+error.newPasswordTooShort=The new password must contain at least 8 characters
+error.selectARole=You must select a role
 
-error.auth.cannotSingup=No se ha podido realizar el registro. Intenta nuevamente
-error.auth.cannotLogin=Email y/o contraseña inválidos
-error.auth.cannotRecover=No se puede recuperar la contraseña. Intenta nuevamente
-error.admin.cannotLogin=Nombre de usuario y/o contraseña inválidos
-error.email.notFound=El email ingresado no corresponde con un usuario registrado
-error.username.notFount=El nombre de usuario ingresado no corresponde con un administrador registrado
-error.user.notFound=Los datos ingresados no corresponde con un usuario registrado
-error.user.cannotEditProfile=No se pudo actualizar el perfil. Intenta nuevamente
-error.user.cannotModifyPassword=No se pudo actualizar la contraseña. Intenta nuevamente
-error.user.cannotDelete=No se pudo borrar el usuario. Intenta nuevamente
-error.user.cannotModerate=No se pudo moderar el usuario. Intenta nuevamente
-error.user.cannotRemoveModeration=No se pudo remover la moderación del usuario. Intenta nuevamente
-error.admin.auth.cannotCreate=No se ha podido crear el usuario administrador. Intenta nuevamente
-error.admin.auth.cannotEdit=No se ha podido editar el usuario administrador. Intenta nuevamente
-error.adminUser.notExist=El ID de usuario administrador provisto es inválido
-error.adminUser.cannotDelete=No se pudo borrar el usuario administrador. Intenta nuevamente
-error.adminUser.cannotModifyPassword=No se pudo actualizar la contraseña. Intenta nuevamente
-error.superAdmin.edit=No cuentas con los permisos suficientes para editar el Super Admin
+error.auth.cannotSingup=The registration couldn't be made. Try again
+error.auth.cannotLogin=Email and/or password incorrect
+error.auth.cannotRecover=The password couldn't be reset. Try again
+error.admin.cannotLogin=User and/or password incorrect
+error.email.notFound=The email doesn't belong to a registered user
+error.username.notFount=The username doesn't belong to a registered user
+error.user.notFound=The filled data doesn't belong to a registered user
+error.user.cannotEditProfile=The profile couldn't be updated. Try again
+error.user.cannotModifyPassword=The password couldn't be updated. Try again
+error.user.cannotDelete=User couldn't be deleted. Try again
+error.user.cannotModerate=User couldn't be moderated. Try again
+error.user.cannotRemoveModeration=User couldn't be unmoderated. Try again
+error.admin.auth.cannotCreate=Admin user couldn't be created. Try again
+error.admin.auth.cannotEdit=Admin user couldn't be updated. Try again
+error.adminUser.notExist=The admin user ID is invalid
+error.adminUser.cannotDelete=Admin user couldn't be deleted. Try again
+error.adminUser.cannotModifyPassword=The password couldn't be updated. Try again
+error.superAdmin.edit=You haven't the correct permissions to edit Super Admin
 
 # Actions
-actions.logout=Salir
-actions.signup=Registrarse
-actions.login=Ingresar
-actions.recover=Restablecer contraseña
-actions.back=Volver
-actions.resend=Reenviar
-actions.resendEmailVerification=Reenviar email validación
-actions.modify=Modificar
-actions.adminUsers=Usuarios administradores
-actions.users=Usuarios
-actions.edit=Editar
-actions.delete=Borrar
-actions.detail=Detalle
-actions.create=Crear
-actions.editPassword=Editar contraseña
-actions.moderate=Moderar
-actions.removeModeration=Remover moderación
+actions.logout=Logout
+actions.signup=Register
+actions.login=Login
+actions.recover=Reset Password
+actions.back=Back
+actions.resend=Resend
+actions.resendEmailVerification=Resend email verification
+actions.modify=Modify
+actions.adminUsers=Admin users
+actions.users=Users
+actions.edit=Edit
+actions.delete=Delete
+actions.detail=Detail
+actions.create=Create
+actions.editPassword=Edit password
+actions.moderate=Moderate
+actions.removeModeration=Remove moderation
 
 # Fields
-field.name=Nombre
-field.firstName=Nombre
-field.lastName=Apellido
+field.name=Name
+field.firstName=First Name
+field.lastName=Last Name
 field.email=Email
-field.password=Contraseña
-field.repeatPassword=Repetir contraseña
-field.currentPassword=Contraseña actual
-field.newPassword=Nueva contraseña
-field.username=Nombre de usuario
+field.password=Password
+field.repeatPassword=Repeat Password
+field.currentPassword=Current Password
+field.newPassword=New Password
+field.username=Username
 field.id=ID
-field.actions=Acciones
+field.actions=Actions
 field.roles=Roles
-field.verificationStatus=Estado verificación
-field.registrationDate=Fecha registro
-field.moderated=Moderado
-field.testUser=Usuario test
+field.verificationStatus=Verification status
+field.registrationDate=Registration date
+field.moderated=Moderated
+field.testUser=Test user
 
 # Paginator
-paginator.previous=Anterior
-paginator.next=Siguiente
+paginator.previous=Previous
+paginator.next=Next
 
 # Email Verification
-email.verification.verified=Email verificado
-email.verification.pending=Verificación pendiente
-email.verification.expired=Verificación expirada
+email.verification.verified=Email verified
+email.verification.pending=Pending email verification
+email.verification.expired=Email verification expired
 
 # Signup
-signup.title=Registro
-signup.createAccount=Crear Cuenta
+signup.title=Register
+signup.createAccount=Create account
 
 # Login
-login.title=Ingreso
-login.loginAction=Ingresar
+login.title=Login
+login.loginAction=Login
 
 # Home
 home.title=Hackathon Starter
 
 # Logout
-logout.error=Problemas al salir de la aplicación
+logout.error=Cannot logout from the application
 
 # Recover
-recover.title=Restablecer contraseña
-recover.recoverAction=Restablecer
-recover.success=Recuperación iniciada. Te hemos enviado un correo electrónico con los pasos a seguir
+recover.title=Reset Password
+recover.recoverAction=Reset
+recover.success=Password reset started. We've sent you and email with the next steps.
 
 # Activation
-emailVerification.result.title=Validación correo electrónico
-emailVerification.verified=La dirección {0} fue correctamente verificada.
-emailVerification.error.alreadyVerified=La dirección ya se encuentra verificada.
-emailVerification.error.hashNotFound=El link que ingresaste es incorrecto. Verifica el correo que te hemos enviado.
-emailVerification.error.hashExpired=El correo de verificación ha expirado. Debes solicitar un nuevo correo de verificación.
-emailVerification.error.resend=No se ha podido reenviar el correo de verificación. Intenta nuevamente
-emailVerification.sent=Se ha enviado exitósamente el correo de verificación a {0}
+emailVerification.result.title=Validation Email
+emailVerification.verified=The email {0} was succesful verificated
+emailVerification.error.alreadyVerified=The email had been already verificated
+emailVerification.error.hashNotFound=The link you've enter is invalid. Verify the email we'd sent you
+emailVerification.error.hashExpired=The verification email has expired. You must request a new one
+emailVerification.error.resend=The verification email couldn't be resent. Try again
+emailVerification.sent=A new verification email has been sent to {0}
 
 # Reset Password
-resetPassword.success=La contraseña fue restablecida.
-emailResetPassword.error.hashExpired=El correo de restablecimiento de contraseña ha expirado. Debes solicitar el restablecimiento nuevamente.
-emailResetPassword.error.alreadyVerified=La contraseña ya fue reestablecida. Si deseas restablecerla, solicita el restablecimiento.
-emailResetPassword.error.hashNotFound=El link que ingresaste incorrecto. Verifica el correo que te hemos enviado.
+resetPassword.success=The password was succesfully reset
+emailResetPassword.error.hashExpired=The reset password email has expired. You must request a new one
+emailResetPassword.error.alreadyVerified=The password has been already reset
+emailResetPassword.error.hashNotFound=Thelink you've enter is invalid. Verify the email we'd sent you
 
 # User Profile
-userProfile.title=Perfil
-userProfile.modifyPassword=Cambiar contraseña
-userProfile.edit=Editar perfil
+userProfile.title=Profile
+userProfile.modifyPassword=Change Password
+userProfile.edit=Edit Profile
 
 # Edit User Profile
-editUserProfile.title=Editar perfil
-editUserProfile.success=El perfil se actualizó exitosamente.
-editUserProfile.successButEmailValidation=El perfil se actualizó exitosamente. Te hemos enviado un correo de verificación a {0}
+editUserProfile.title=Edit Profile
+editUserProfile.success=The profile was successfully updated
+editUserProfile.successButEmailValidation=The profile was successfully updated. We've sent you a verification email to {0}
+editUserProfile.title=Edit Profile
 editUserProfile.edit=Editar perfil
 
 # Change Password
-changePassword.title=Modificar contraseña
-changePassword.success=Se modificó exitósamente la contraseña
-changePassword.invalidCurrentPassword=La contraseña actual es incorrecta
+changePassword.title=Change Password
+changePassword.success=The password has been succesfully updated
+changePassword.invalidCurrentPassword=The Current Password is incorrect
 
 # Admin
-admin.login.title=Ingreso Administradores
-admin.home.title=Panel Administradores
-admin.logout.error=Prolemas al salir del panel de administración
+admin.login.title=Admin Login
+admin.home.title=Admin Panel
+admin.logout.error=Problems on logout. Try again
 
 # Admin User
-adminUser.create.title=Crear usuario administrador
-adminUser.create.createUser=Crear usuario
-adminUser.created.successfully=Usuario creado con éxito
-adminUser.edit.title=Editar usuario administrador
-adminUser.edit.successfully=Usuario editado con éxito
-adminUser.editPassword.successfully=Contraseña actualizada con éxito
-adminUser.edit.editUser=Editar usuario
-adminUser.list.title=Usuarios administradores
-adminUser.delete.text=¿Estás segudo que quieres borrar el usuario admnistrador #{0}? El cambio es irreversible.
-adminUser.delete.successfully=Usuario borrado con éxito
-adminUser.editPassword.title=Editar contraseña
+adminUser.create.title=Create Admin User
+adminUser.create.createUser=Create User
+adminUser.created.successfully=User created succesfully
+adminUser.edit.title=Edit Admin User
+adminUser.edit.successfully=Admin User updated succesfully
+adminUser.editPassword.successfully=Password updated succesfully
+adminUser.edit.editUser=Edit user
+adminUser.list.title=Admin users
+adminUser.delete.text=Are you sure you want to delete admin user #{0}? The change cannot be undone
+adminUser.delete.successfully=Admin User succesfully deleted
+adminUser.editPassword.title=Edit Password
 
 # User (Admin panel)
-user.list.title=Usuarios
-user.delete.text=¿Estás segudo que quieres borrar el usuario #{0}? El cambio es irreversible.
-user.delete.successfully=Usuario borrado con éxito
-user.detail.title=Detalle de usuario
-user.detail.basicInformation=Información básica
-user.detail.config=Configuración
-user.detail.profile=Perfil
+user.list.title=Users
+user.delete.text=Are you sure you want to delete user #{0}? The change cannot be undone
+user.delete.successfully=User successfully deleted
+user.detail.title=User Detail
+user.detail.basicInformation=Basic Info
+user.detail.config=Configuration
+user.detail.profile=Profile
