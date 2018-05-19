@@ -25,6 +25,7 @@ Features
 - JQuery 3
 - SASS support
 - CSRF protection
+- I18n (en & es)
 - Email send through Sendgrid (dev mode logging emails in output log)
 - **Account management**
     - Edit profile
@@ -33,10 +34,13 @@ Features
     - Change password (re-verification process)
 - **Admin panel**
     - CRUD admin users
+    - Unique Super Admin
+    - Role scheme for admin users
     - Registered users list
     - Registered user profile
     - User moderation
     - User delete
+    - Test users / Real users discrimination
 
 Prerequisites
 -------------
