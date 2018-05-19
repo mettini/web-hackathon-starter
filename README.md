@@ -4,7 +4,7 @@ It is a hackathon starter made in Scala (Play Framework). The idea is to have a 
 
 It covers the base structure of the project, user management and a mini admin panel where registered users can be seen.
 
-It aims to be a web application. In the case that the nature of the project is only API-based, take a look to API Hackathon Starter.
+It aims to be a web application. In the case that the nature of the project is only API-based, take a look to [API Hackathon Starter](https://github.com/mettini/api-hackathon-starter).
 
 Table of Contents
 -----------------
@@ -26,12 +26,12 @@ Features
 - SASS support
 - CSRF protection
 - Email send through Sendgrid (dev mode logging emails in output log)
-- Account management
+- **Account management**
     - Edit profile
     - Reset password
     - Email verification
     - Change password (re-verification process)
-- Admin panel
+- **Admin panel**
     - CRUD admin users
     - Registered users list
     - Registered user profile
@@ -52,7 +52,7 @@ Clone the repo and follow these steps to leave the app running:
 ### Database init
 
 Create a database with name *hackathonStarter*:
-```
+```sql
 DROP DATABASE IF EXISTS hackathonStarter;
 CREATE DATABASE hackathonStarter DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE hackathonStarter;
