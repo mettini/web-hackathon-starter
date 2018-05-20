@@ -31,7 +31,7 @@ Features
     - Edit profile
     - Reset password
     - Email verification
-    - Change password (re-verification process)
+    - Change password
 - **Admin panel**
     - CRUD admin users
     - Unique Super Admin
